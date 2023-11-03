@@ -1,14 +1,44 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
     private String name;
-    private List<Employee> employees;
+    private List<Employee> employeeList;
 
     public Department(String name) {
-        // TODO: Initialize the attributes
+        this.name = name;
+        this.employeeList = new ArrayList<>();
     }
 
-    // TODO: Implement methods to add an employee, remove an employee, and calculate the average salary for the department
+    public void addEmployee(Employee employee) {
+        employeeList.add(employee);
+    }
+
+    public void removeEmployee(Employee employee) {
+        employeeList.remove(employee);
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public List<Employee> getEmployees() {
+        return this.employeeList;
+    }
+
+    // Calculate average salary
+    public double calculateAverageSalary() {
+        if (employeeList.isEmpty()) {
+            return 0.0;
+        }
+
+        double totalSalary = 0;
+        for (Employee employee : employeeList) {
+            totalSalary += employee.getSalary();
+        }
+
+        return totalSalary / employeeList.size();
+    }
 }

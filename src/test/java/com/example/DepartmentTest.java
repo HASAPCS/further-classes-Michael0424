@@ -13,6 +13,6 @@ public class DepartmentTest {
         department.addEmployee(employee);
         assertEquals(1, department.getEmployees().size());
         assertEquals(employee, department.getEmployees().get(0));
-    }
+    } 
 
 }
